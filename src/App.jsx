@@ -256,11 +256,11 @@ function App() {
             style={{
             // backgroundColor: 'rgba(0,0,0,0.4)',
             // borderRadius: '100%',
-            width: '6rem',
-            height: '6rem'
+            width: '6.5rem',
+            height: '6.5rem'
             }}
             autoplay={{
-              delay: 2000,
+              delay: 1600,
               disableOnInteraction: false,
             }}
             spaceBetween={30}
@@ -269,7 +269,7 @@ function App() {
             >
               {skills.map(item=>(
                 <SwiperSlide key={item.alt}>
-                  <img style={{width: '6rem'}} src={item.src} alt={item.alt} />
+                  <img style={{width: '6rem', filter: 'drop-shadow(0px 0px 1px #000000)'}} src={item.src} alt={item.alt} />
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -278,7 +278,7 @@ function App() {
         <Grid item xs={4} sm={8} md={6}>
           <Stack alignItems='center' spacing={6}>
             <Typography style={{color: "#ffffff" }} variant='h5' component='h5'>Contacto</Typography>
-              <Stack  direction="row" justifyContent='center' spacing={2}>
+              <Stack  direction={{ xs: 'column', sm: 'row' }} justifyContent='center' spacing={2}>
                 {
                   media.map(item=>(
                     <a key={item.title} target='_blank' href={item.link}>
