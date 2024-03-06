@@ -8,8 +8,17 @@ import slide3 from './assets/formulario2.png'
 import slide4 from './assets/platos.png'
 import slide5 from './assets/reserva.png'
 import './App.css'
-import { Grid, Typography } from '@mui/material'
+import { Stack, Fab, Grid, Typography } from '@mui/material'
 import CustomCard from './components/CustomCard'
+import { brown } from '@mui/material/colors';
+import Photoshop from './assets/Photoshop.svg'
+import Selenium from './assets/Selenium.svg'
+import Jira from './assets/Jira.svg'
+import Notion from './assets/Notion.svg'
+import GitHubIcon from '@mui/icons-material/GitHub';
+import EmailIcon from '@mui/icons-material/Email';
+import SmartphoneIcon from '@mui/icons-material/Smartphone';
+
 function App() {
   
   const index_card=[
@@ -80,6 +89,24 @@ function App() {
     ]
   }
   ]
+  const media=[
+    {
+      link: 'https://github.com/Laloep19',
+      icon: <GitHubIcon sx={{ mr: 1 }}/>,
+      title: 'Github'
+    },
+    {
+      link: 'mailto:eduardo.espinosa.perez.02@gmail.com',
+      icon: <EmailIcon sx={{ mr: 1 }}/>,
+      title: 'Correo'
+    },
+    {
+      link: 'tel:+525548737929',
+      icon: <SmartphoneIcon sx={{ mr: 1 }}/>,
+      title: 'Telefono'
+    }
+  ]  
+  
   return (
     <>
       <Grid container rowSpacing='2rem' margin='3rem 0' justifyContent="space-evenly" columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -93,7 +120,7 @@ function App() {
               creativas me permiten encontrar soluciones innovadoras y eficientes
               a los desafíos y problemas se van presentando.</p>
         </Grid>
-        <Grid alignSelf='center' itemxs={4} sm={2} md={4}>
+        <Grid alignSelf='center' item xs={4} sm={2} md={4}>
           <img style={{width: '60%'}} src={img}/>
         </Grid>
       </Grid>
@@ -113,7 +140,31 @@ function App() {
             </Grid>
         ))}
       </Grid>
-      
+      <Grid container rowSpacing='2rem' margin='3rem 0' justifyContent="space-evenly" columns={{ xs: 4, sm: 8, md: 12 }}>
+        <Grid item xs={4} sm={4} md={6}>
+          <Typography style={{color: '#16be6a'}} marginBottom='1rem' variant='h5' component='h5'>Habilidades</Typography>
+          <Stack direction="row" justifyContent='center' spacing={2}>
+            <img src={Photoshop} alt="Photoshop Logo" />
+            <img src={Selenium} alt="Selenium Logo" />
+            <img src={Jira} alt="Jira Logo" />
+            <img src={Notion} alt="Notion Logo" />
+          </Stack>
+        </Grid>
+        <Grid item xs={4} sm={4} md={6}>
+          <Typography style={{color: '#16be6a'}} marginBottom='1rem' variant='h5' component='h5'>Contacto</Typography>
+          <Stack direction="row" justifyContent='center' spacing={2}>
+          {
+            media.map(item=>(
+              <a key={item.title} target='_blank' href={item.link}>
+                <Fab  sx={{background: brown[500]}} variant='extended' >
+                  {item.icon}
+                  {item.title}
+                </Fab>
+              </a>
+            ))}
+          </Stack>
+        </Grid>
+      </Grid>
     </>
   )
 }
