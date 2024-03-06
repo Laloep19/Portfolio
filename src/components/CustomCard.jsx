@@ -31,7 +31,9 @@ function CustomCard({modal,src,alt,title,description,chips}) {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    border: '2px solid #000',
+    backgroundColor: 'rgba(214, 223, 241, 0.676)',
+    backdropFilter: 'blur(10px)',
+    borderRadius: '60px',
     boxShadow: 24,
     p: 4,
   };
